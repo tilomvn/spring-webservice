@@ -13,15 +13,15 @@ class ExceptionHandlerMapper implements ExceptionMapper<CustomException> {
 	@Override
 	public Response toResponse(CustomException exception) {
 		return Response.serverError()
-				.entity(new ErrorResposne(exception.getMessage()))
+				.entity(new ErrorResponse(exception.getMessage()))
 				.type(MediaType.APPLICATION_JSON)
 				.build();
 	}
 	
-	class ErrorResposne {
+	class ErrorResponse {
 		String error;
-		
-		ErrorResposne(String error) { this.error = error; }
+
+		ErrorResponse(String error) { this.error = error; }
 		
 		public String getError() { return error; }
 	}
